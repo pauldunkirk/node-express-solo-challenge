@@ -1,7 +1,22 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var bodyParser = require('body-parser');
 var port = 3000;
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(express.static('server/public'));
+app.listen(port, function() {
+  console.log("Node listening on port " + port);
+});
+//index
+app.get('/', function(req, res) {
+  res.sendFile(path.resolve('server/public/views/index.html'));
+});
+
+// routes
+
 
 
 // initial jokes provided by the client
@@ -22,19 +37,15 @@ var jokes = [
     punchLine: "It was shih tzu."
   }
 ];
+app.get('/jokes0', function(req, res){
+    res.send(jokes[0]);
+});//end of get jokes0
 
-// static file requests
-app.use(express.static('server/public'));
-
-// routes
-
-
-// Send index.html file
-app.get('/', function(req, res) {
-  res.sendFile(path.resolve('server/public/views/index.html'));
-});
-
-// Start the server!
-app.listen(port, function() {
-  console.log("Node listening on port " + port);
-});
+app.get('/jokes1', function(req, res){
+  res.send(jokes[1]);
+});//end of get jokes1
+//
+app.get('/jokes2', function(req, res){
+  res.send(jokes[2]);
+});//end of get jokes2
+//
