@@ -37,8 +37,9 @@ var jokes = [
     punchLine: "It was shih tzu."
   }
 ];
-app.get('/jokes0', function(req, res){
-    res.send(jokes[0]);
+app.get('/jokes', function(req, res){
+    res.send(jokes);
+    
 });//end of get jokes0
 
 app.get('/jokes1', function(req, res){

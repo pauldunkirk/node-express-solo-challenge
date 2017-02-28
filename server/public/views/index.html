@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/styles.css">
     <title>Node Express Joke Book</title>
     <script src="vendor/jquery.min.js" type="text/javascript"></script>
     <script src="scripts/client.js" type="text/javascript"></script>
@@ -12,30 +13,10 @@
 
 <body>
     <h1>Node Express Joke Book</h1>
-    <div class="displayJoke1">How about a joke? Click here:
-      <button id="jokeOne" type="button" name="button">joke1</button>
-        <div id="jokesDiv1"></div>
-        <div id="jokesDiv2"></div>
-        <div id="jokesDiv3"></div>
-
-        <div id="displayJoke2">
-            <button id="jokeTwo" type="button" name="button">joke2</button>
-            <div id="jokesDiv4"></div>
-            <div id="jokesDiv5"></div>
-            <div id="jokesDiv6"></div>
-        </div>
-        <div id="displayJoke3">
-            <button id="jokeThree" type="button" name="button">joke3</button>
-            <div id="jokesDiv7"></div>
-            <div id="jokesDiv8"></div>
-            <div id="jokesDiv9"></div>
-        </div>
-        <input id="myJoke" type="text" name="" value="" placeholder="add a joke and click">
-        <button id="addJoke" type="button" name="button">add my joke</button>
-        <div id="displayJoke4">
-
-        </div>
-    </div>
+    <button id="jokeClick" type="button" name="button">How about a joke or 3?</button>
+    <!-- <input id="myJoke" placeholder="add a joke and click">
+    <button id="addJoke" type="button" name="button">add my joke</button> -->
+    <div id="jokesDisplay"></div>
 </body>
 
 </html>

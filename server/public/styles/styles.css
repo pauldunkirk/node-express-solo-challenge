@@ -1,1 +1,6 @@
-/* empty */
+#jokesDisplay {
+  border: 5px solid black;
+}
+#jokeClick{
+  border: 5px solid black;
+}

@@ -4,7 +4,25 @@ $(document).ready(function() {
   var jokeQuestion;
   var punchLine;
   var joke = {};
-
+  $('#jokeClick').on('click', function (){
+    $.ajax({
+        type: 'GET',
+        url: '/jokes',
+        success: function(response) {
+          console.log(response);
+          for (var i = 0; i < response.length; i++) {
+            $('#jokesDisplay').append('<br>' + response[i].whoseJoke, ': ');
+            $('#jokesDisplay').append('<br>' + response[i].jokeQuestion);
+            $('#jokesDisplay').append('<p>' + response[i].punchLine + '</p>');
+            console.log(response[i]);
+          }
+          // $('#jokesDiv1').text(response.whoseJoke);
+          // $('#jokesDiv2').text(joke.jokeQuestion);
+          // $('#jokesDiv3').text(joke.punchLine);
+          // console.log(joke);
+        } //  END OF SUCCESS
+    }); //END OF AJAX
+  }); //END CLICK
   $('#addJoke').on('click', function() {
       myJoke=$('#myJoke').text();
       console.log(myJoke);
@@ -18,63 +36,51 @@ $(document).ready(function() {
       }); //END OF AJAX
   }); // end of click
 
-$('#jokeOne').on('click', function (){
-  $.ajax({
-      type: 'GET',
-      url: '/jokes0',
-      success: function(response) {
-        var joke1 = response;
-        $('#jokesDiv1').text(joke1.whoseJoke);
-        $('#jokesDiv2').text(joke1.jokeQuestion);
-        $('#jokesDiv3').text(joke1.punchLine);
-        console.log(joke1);
-      } //  END OF SUCCESS
-  }); //END OF AJAX
-}); //END CLICK
 
-$('#jokeTwo').on('click', function (){
-  $.ajax({
-      type: 'GET',
-      url: '/jokes1',
-      success: function(response) {
-        var joke2 = response;
-        $('#jokesDiv4').text(joke2.whoseJoke);
-        $('#jokesDiv5').text(joke2.jokeQuestion);
-        $('#jokesDiv6').text(joke2.punchLine);
-        console.log(joke2);
-      } //  END OF SUCCESS
-  }); //END OF AJAX
-}); //END CLICK
 
-$('#jokeThree').on('click', function (){
-  $.ajax({
-      type: 'GET',
-      url: '/jokes2',
-      success: function(response) {
-        var joke3 = response;
-        $('#jokesDiv7').text(joke3.whoseJoke);
-        $('#jokesDiv8').text(joke3.jokeQuestion);
-        $('#jokesDiv9').text(joke3.punchLine);
-        console.log(joke3);
-      } //  END OF SUCCESS
-  }); //END OF AJAX
-}); //END CLICK
-
-// $('body').on('click', function (){
-// for (var i = 0; i < array.length; i++) {
-//   array[i]
-// }
-// //   $.ajax({
+// $('#jokeTwo').on('click', function (){
+//   $.ajax({
 //       type: 'GET',
-//       url: '/jokes[i]',
+//       url: '/jokes1',
 //       success: function(response) {
-//         joke = response;
-//         $('#jokesDiv1').text(joke.whoseJoke);
-//         $('#jokesDiv2').text(joke.jokeQuestion);
-//         $('#jokesDiv3').text(joke.punchLine);
+//         var joke2 = response;
+//         $('#jokesDiv4').text(joke2.whoseJoke);
+//         $('#jokesDiv5').text(joke2.jokeQuestion);
+//         $('#jokesDiv6').text(joke2.punchLine);
+//         console.log(joke2);
 //       } //  END OF SUCCESS
 //   }); //END OF AJAX
 // }); //END CLICK
+//
+// $('#jokeThree').on('click', function (){
+//   $.ajax({
+//       type: 'GET',
+//       url: '/jokes2',
+//       success: function(response) {
+//         var joke3 = response;
+//         $('#jokesDiv7').text(joke3.whoseJoke);
+//         $('#jokesDiv8').text(joke3.jokeQuestion);
+//         $('#jokesDiv9').text(joke3.punchLine);
+//         console.log(joke3);
+//       } //  END OF SUCCESS
+//   }); //END OF AJAX
+// }); //END CLICK
+//
+// // $('body').on('click', function (){
+// // for (var i = 0; i < array.length; i++) {
+// //   array[i]
+// // }
+// // //   $.ajax({
+// //       type: 'GET',
+// //       url: '/jokes[i]',
+// //       success: function(response) {
+// //         joke = response;
+// //         $('#jokesDiv1').text(joke.whoseJoke);
+// //         $('#jokesDiv2').text(joke.jokeQuestion);
+// //         $('#jokesDiv3').text(joke.punchLine);
+// //       } //  END OF SUCCESS
+// //   }); //END OF AJAX
+// // }); //END CLICK
 
 
 
